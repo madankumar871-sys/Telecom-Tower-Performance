@@ -4,6 +4,16 @@ import pandas as pd
 import os
 import joblib
 
+from fastapi import FastAPI
+
+# The variable MUST be named exactly "app"
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
+
+
 # Get the folder where app.py is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
